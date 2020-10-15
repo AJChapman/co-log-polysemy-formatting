@@ -55,7 +55,7 @@ addThreadAndTimeToLog
     '[ Embed IO
      , Log ThreadTimeMessage
      ] r
-  => Sem (Log (Message) ': r) a
+  => Sem (Log Message ': r) a
   -> Sem r a
 addThreadAndTimeToLog = interpret $ \case
   Log msg -> do
