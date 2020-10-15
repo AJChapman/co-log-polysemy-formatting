@@ -33,7 +33,8 @@ main = do
       -- Set the level of logging we want (for more control see 'filterLogs')
       & setLogLevel Debug
 
-      -- This lets us log the thread id and message timestamp with each log message
+      -- This lets us log the thread id and message timestamp with each log message.
+      -- It transforms the 'Log Message' effect into a 'Log ThreadTimeMessage' effect.
       & addThreadAndTimeToLog
 
       -- If you are using the 'Async' effect then interpret it here, after adding the thread and time,
@@ -45,6 +46,7 @@ main = do
 
       & runM
 
+-- The 'WithLog r' constraint expands to '(HasCallStack, Member (Log Message) r)'
 program :: (WithLog r, Members '[Async, Embed IO] r) => Sem r ()
 program = do
   -- This concurrency is just here to demonstrate that it is possible.
