@@ -49,9 +49,9 @@ program :: (WithLog r, Members '[Async, Embed IO] r) => Sem r ()
 program = do
   -- This concurrency is just here to demonstrate that it is possible.
   -- It isn't required.
-  sequenceConcurrently $
+  _ <- sequenceConcurrently $
     replicate 10 asyncProg
-    <> [logError ("Error message: '" % accessed fst text <> "', number: " % accessed snd int) ("It's all broken!", 17)]
+    <> [logError ("Error message: '" % accessed fst text <> "', number: " % accessed snd int) ("It's all broken!", 17 :: Int)]
     <> replicate 10 asyncProg
   pure ()
   where

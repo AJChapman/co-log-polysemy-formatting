@@ -78,9 +78,9 @@
 -- > program = do
 -- >   -- This concurrency is just here to demonstrate that it is possible.
 -- >   -- It isn't required.
--- >   sequenceConcurrently $
+-- >   _ <- sequenceConcurrently $
 -- >     replicate 10 asyncProg
--- >     <> [logError ("Error message: '" % accessed fst text <> "', number: " % accessed snd int) ("It's all broken!", 17)]
+-- >     <> [logError ("Error message: '" % accessed fst text <> "', number: " % accessed snd int) ("It's all broken!", 17 :: Int)]
 -- >     <> replicate 10 asyncProg
 -- >   pure ()
 -- >   where
@@ -172,7 +172,7 @@ logException :: (WithLog r, Exception e) => e -> Sem r ()
 logException = withFrozenCallStack . logError string . displayException
 
 -- | Interpret the 'Log' effect by completely ignoring all log messages.
-ignoreLog :: (Applicative m, Member (Embed m) r) => Sem (Log msg ': r) a -> Sem r a
+ignoreLog :: Sem (Log msg ': r) a -> Sem r a
 ignoreLog = interpret $ \case
   Log _ -> pure ()
 

@@ -63,7 +63,7 @@ makeLenses ''Person'
 myPerson' :: Person'
 myPerson' = Person' "Dave" 16
 
-logInfo ("The person's name is " % viewed personName text <> ", and their age is " % viewed personAge int) myPerson
+logInfo ("The person's name is " % viewed personName text <> ", and their age is " % viewed personAge int) myPerson'
 ```
 
 ## Why not just use co-log-polysemy?
