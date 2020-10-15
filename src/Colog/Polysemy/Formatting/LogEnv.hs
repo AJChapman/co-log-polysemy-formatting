@@ -1,8 +1,7 @@
 {-|
 Module      : Colog.Polysemy.Formatting.LogEnv
 Description : The 'LogEnv' datatype, to describe the logging environment.
-
-|-}
+-}
 module Colog.Polysemy.Formatting.LogEnv
   ( LogEnv(..)
   , newLogEnv

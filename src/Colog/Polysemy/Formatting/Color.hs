@@ -2,7 +2,7 @@
 {-|
 Module      : Colog.Polysemy.Formatting.Color
 Description : Terminal colour support for log messages.
-|-}
+-}
 module Colog.Polysemy.Formatting.Color
   ( Color(..)
   , UseColor(..)

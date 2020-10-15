@@ -4,7 +4,7 @@
 {-|
 Module      : Colog.Polysemy.Formatting.Render
 Description : Render log messages.
-|-}
+-}
 module Colog.Polysemy.Formatting.Render
   ( renderThreadTimeMessage
   , renderThreadTimeMessageShort

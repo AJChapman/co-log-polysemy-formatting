@@ -11,7 +11,7 @@
 {-|
 Module      : Colog.Polysemy.Formatting.ThreadTimeMessage
 Description : A message type that includes ThreadId and a timestamp, wrapping a 'Message'.
-|-}
+-}
 module Colog.Polysemy.Formatting.ThreadTimeMessage
   ( ThreadTimeMessage(..)
   , HasSeverity(..)

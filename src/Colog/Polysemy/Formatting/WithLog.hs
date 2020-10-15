@@ -8,7 +8,7 @@
 {-|
 Module      : Colog.Polysemy.Formatting.WithLog
 Description : A constraint for adding the logging effect.
-|-}
+-}
 module Colog.Polysemy.Formatting.WithLog
   ( WithLog'
   , WithLog
