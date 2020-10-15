@@ -3,7 +3,7 @@ name:                co-log-polysemy-formatting
 version:             0.1.0.0
 synopsis:            A Polysemy logging effect for high quality (unstructured) logs.
 description:         co-log-polysemy-formatting builds on the co-log-polysemy package, adding terminal colours, log severity, timestamps, callers, thread ids, and a flexible log format with good defaults. It also allows you to use the formatting library for formatting your log messages.
-homepage:         https://github.com/AJChapman/co-log-polysemy-formatting/README.md
+homepage:         https://github.com/AJChapman/co-log-polysemy-formatting#readme
 bug-reports:         https://github.com/AJChapman/co-log-polysemy-formatting/issues
 license:             BSD-3-Clause
 license-file:        LICENSE
