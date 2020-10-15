@@ -27,7 +27,44 @@ The colours show up if your terminal supports them, otherwise it will fall back 
 ## formatting messages
 
 Our logging functions, e.g. `logInfo`, take a [formatting] formatter rather than a `String`/`Text`/etc.
-This makes it quick and easy to build your log messages from whatever type you have at hand, and still allows you to directly log string literals thanks to the `OverloadedStrings` language extension.
+This makes it quick and easy to build your log messages from whatever type you have at hand, and still allows you to directly log string literals thanks to the `OverloadedStrings` language extension:
+
+```haskell
+{-# LANGUAGE OverloadedStrings #-}
+
+myString :: String
+myString = "this is my string"
+
+myStrictText :: Data.Text.Text
+myStrictText = "this is my strict text"
+
+myLazyText :: Data.Text.Lazy.Text
+myLazyText = "this is my lazy text"
+
+-- These will all work:
+logInfo "a string literal"
+logInfo string myString
+logInfo stext myStrictText
+logInfo text myLazyText
+logInfo (string % ", " % stext % ", " % text) myString myStrictText myLazyText
+
+-- And logging structures is easy too:
+data Person = Person { personName :: Text, personAge :: Int }
+
+myPerson :: Person
+myPerson = Person "Dave" 16
+
+logInfo ("The person's name is " % accessed personName text <> ", and their age is " % accessed personAge int) myPerson
+
+-- Or with lenses
+data Person' = Person' { _personName :: Text, _personAge :: Int }
+makeLenses ''Person'
+
+myPerson' :: Person'
+myPerson' = Person' "Dave" 16
+
+logInfo ("The person's name is " % viewed personName text <> ", and their age is " % viewed personAge int) myPerson
+```
 
 ## Why not just use co-log-polysemy?
 
@@ -37,4 +74,4 @@ And you're still using co-log-polysemy under the hood -- we even re-export some 
 
 [co-log]: https://hackage.haskell.org/package/co-log
 [co-log-polysemy]: https://hackage.haskell.org/package/co-log-polysemy
-[formatting]: https://hackage.haskell.org/package/formatting
+[formatting]: https://github.com/AJChapman/formatting#readme
