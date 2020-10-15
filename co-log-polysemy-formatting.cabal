@@ -1,7 +1,7 @@
 cabal-version:       2.4
 name:                co-log-polysemy-formatting
 version:             0.1.0.0
-synopsis:            A Polysemy logging effect using co-log and formatting to log messages with colour, severity, timestamps, callers, and thread ids.
+synopsis:            A Polysemy logging effect for high quality (unstructured) logs.
 description:         co-log-polysemy-formatting builds on the co-log-polysemy package, adding terminal colours, log severity, timestamps, callers, thread ids, and a flexible log format with good defaults. It also allows you to use the formatting library for formatting your log messages.
 homepage:         https://github.com/AJChapman/co-log-polysemy-formatting/README.md
 bug-reports:         https://github.com/AJChapman/co-log-polysemy-formatting/issues
@@ -28,7 +28,7 @@ common deps
                      , formatting      ^>= 7.1.0
                      , polysemy        ^>= 1.3.0.0
                      , text             >= 0.11.0.8 && < 1.3
-                     , time            ^>= 1.9.3
+                     , time             >= 1.8.0.2 && < 1.10
 
 -- Warnings list list taken from
 -- https://medium.com/mercury-bank/enable-all-the-warnings-
