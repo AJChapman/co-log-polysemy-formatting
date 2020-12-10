@@ -16,5 +16,11 @@ haskellPackages.override {
     # Fix package versions to get co-log working
     co-log = haskellLib.unmarkBroken super.co-log;
     typerep-map = haskellLib.doJailbreak (haskellLib.unmarkBroken super.typerep-map);
+
+    chronos                 = haskellLib.dontCheck (haskellLib.unmarkBroken super.chronos);
+    co-log-polysemy         = haskellLib.doJailbreak (haskellLib.unmarkBroken super.co-log-polysemy);
+    hoist-error             = haskellLib.doJailbreak (haskellLib.unmarkBroken super.hoist-error);
+
+
   };
 }

@@ -21,14 +21,11 @@ tested-with:           GHC == 8.4.4
 
 common deps
   build-depends:       base             >= 4.11.0.0 && < 5
-                     , ansi-terminal   ^>= 0.10.3
                      , co-log          ^>= 0.4.0.1
                      , co-log-core     ^>= 0.2.1.1
                      , co-log-polysemy ^>= 0.0.1.1
                      , formatting      ^>= 7.1.0
                      , polysemy         >= 1.3.0.0 && < 1.6
-                     , text             >= 0.11.0.8 && < 1.3
-                     , time             >= 1.8.0.2 && < 1.10
 
 -- Warnings list list taken from
 -- https://medium.com/mercury-bank/enable-all-the-warnings-a0517bc081c3
@@ -55,6 +52,9 @@ library
   import: deps
   hs-source-dirs:    src
   default-language:  Haskell2010
+  build-depends:       ansi-terminal   ^>= 0.10.3
+                     , text             >= 0.11.0.8 && < 1.3
+                     , time             >= 1.8.0.2 && < 1.10
   exposed-modules:   Colog.Polysemy.Formatting
                      Colog.Polysemy.Formatting.Color
                      Colog.Polysemy.Formatting.LogEnv
