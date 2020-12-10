@@ -111,6 +111,7 @@ module Colog.Polysemy.Formatting
   , setLogLevel
   , addThreadAndTimeToLog
   , renderThreadTimeMessage
+  , renderThreadTimeMessageShort
 
   -- * Re-exports from other packages
   , HasCallStack
