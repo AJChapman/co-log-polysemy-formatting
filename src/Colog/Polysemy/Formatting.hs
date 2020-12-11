@@ -139,7 +139,7 @@ import GHC.Stack (HasCallStack, callStack, withFrozenCallStack)
 import Polysemy
 
 import Colog.Polysemy.Formatting.LogEnv (newLogEnv)
-import Colog.Polysemy.Formatting.Render (renderThreadTimeMessage)
+import Colog.Polysemy.Formatting.Render (renderThreadTimeMessage, renderThreadTimeMessageShort)
 import Colog.Polysemy.Formatting.ThreadTimeMessage (addThreadAndTimeToLog, HasSeverity(..))
 import Colog.Polysemy.Formatting.WithLog (WithLog, WithLog')
 
