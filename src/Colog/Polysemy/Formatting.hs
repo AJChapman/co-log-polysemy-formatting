@@ -172,7 +172,7 @@ logError = withFrozenCallStack $ log Error
 
 -- | Log the exception as an error.
 logException :: (WithLog r, Exception e) => e -> Sem r ()
-logException = withFrozenCallStack . logError string . displayException
+logException = (\k -> withFrozenCallStack k) . logError string . displayException
 
 -- | Interpret the 'Log' effect by completely ignoring all log messages.
 ignoreLog :: Sem (Log msg ': r) a -> Sem r a
